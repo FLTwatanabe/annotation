@@ -14,7 +14,7 @@ https://qiita.com/wakaba130/items/b0db5c5af4d1ecdaf985
 $ cd vatic/
 ```
 ### docker operation
-````
+```
 # initial
 # local volume is mounted on the container
 $ docker pull npsvisionlab/vatic-docker
@@ -43,4 +43,21 @@ file.write("<width>{0}</width>".format(video.height))
 >>
 file.write("<height>{0}</height>".format(video.height))
 file.write("<width>{0}</width>".format(video.width))
+```
+### １動画終わったら
+* Webアプリにおいて save ボタン
+* コマンドラインに戻って、docker環境上で以下のコマンド
+```
+# --pascal-skip 1 オプションをつけることにより、全てのフレームのデータを出力できます。
+~/vatic# turkic dump currentvideo -o /root/vatic/data/VOC/ --pascal --pascal-skip 1
+```
+* 生成されたVOCを退避
+* データベースの初期化
+```
+~/vatic# turkic setup --database --reset
+> y
+```
+* 先の工程と同様に、dataディレクトリに必要なファイルを用意した上で
+```
+~/vatic# sh example.sh
 ```
