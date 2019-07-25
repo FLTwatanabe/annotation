@@ -1,13 +1,13 @@
 # vatic_annotation
+Generate annotation data using Vatic
 ## Installation
-### docker
-```
-$ 
-```
-### まとめサイトに従う
+Vatic is installed into docker container.
+### docker installation
+https://qiita.com/n-yamanaka/items/ddb18943f5e43ca5ac2e
+### vatic installation
 https://qiita.com/wakaba130/items/b0db5c5af4d1ecdaf985
 ## Operation
-### ディレクトリ構成
+### Directory structure
 ```
 ~/vatic/data/labels.txt
 ~/vatic/data/videos_in/<your_video>
@@ -15,8 +15,8 @@ $ cd vatic/
 ```
 ### docker operation
 ````
-# 初回のみ
-# ローカルのボリュームがコンテナにマウントされる.
+# initial
+# local volume is mounted on the container
 $ docker pull npsvisionlab/vatic-docker
 $ docker run -it -p 8111:80 -v $PWD/data:/root/vatic/data npsvisionlab/vatic-docker /bin/bash
 
@@ -31,6 +31,7 @@ $ docker contaier start <container_id>
 # コンテナ入る
 $ docker exec -it <contaier_id> /bin/bash
 ```
+
 ### ファイル修正
 ```
 # cd root/vatic/
